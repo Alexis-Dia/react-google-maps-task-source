@@ -82,8 +82,7 @@ const Card = ({closed, removeOnClick, props}) => {
 const MyMapComponent = compose(
   withProps({
     googleMapURL:
-    "https://maps.googleapis.com/maps/api/js?" +
-    "key=AIzaSyCbkfpJp43QCTESypxG1Ch4lv3LYQfo-ro&v=3.exp&libraries=geometry,drawing,places",
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyCbkfpJp43QCTESypxG1Ch4lv3LYQfo-ro&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `1200px`, width: '700px' }} />,
     containerElement: <div style={{ height: `600px`, width: '650px', marginTop: '100px' }} />,
     mapElement: <div style={{ height: `300px`, width: '610px' }} />
@@ -162,8 +161,7 @@ function GetMapData(minLng, maxLng, minLat, maxLat) {
       });
     return data;
   } else {
-    url = `https://endpoints.azurewebsites.net/api/points
-    ?minLng=18.04873506884769&maxLng=18.03156893115238&minLat=59.34684406531631&maxLat=59.34246779369348`;
+    url = `https://endpoints.azurewebsites.net/api/points?minLng=18.04873506884769&maxLng=18.03156893115238&minLat=59.34684406531631&maxLat=59.34246779369348`;
     console.log(url);
     axios.get(url)
       .then(res => {
