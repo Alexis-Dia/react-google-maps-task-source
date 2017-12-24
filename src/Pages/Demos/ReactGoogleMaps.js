@@ -21,44 +21,39 @@ var removedPointId = '';
 
 const MarkersList = () => {
   if (typeof data !== 'undefined') {
-    return (
-      data.map(function (ob) {
-          return [ob.id, ob.vicinity, ob.name];
-        }
-      ));
+  return (
+    data.map(function (ob) {
+        return [ob.id, ob.vicinity, ob.name];
+      }
+    ));
   } else {
     return ['Please, make your choice ...', '', ''];
   }}
 
 const MarkerView = ({closed, props}) => {
   if (typeof data !== 'undefined') {
-    return (
-      <div>
-        {data.map(function (ob) {
-          function setMarkerData() {
-          return () => (pointId = ob.id,
-          markerData[0] = ob.name,
-          markerData[1] = ob.vicinity,
-          props.setClosed(true),
-          props.onZoomChange(MarkersList));
-        }
-          return ( removedPointId !== ob.id &&
-          <Marker
-          position={{lat: Number(ob.geometry.location.lat), lng: Number(ob.geometry.location.lng)}}
-          key={ob.id}
-          onClick={setMarkerData()}>
-          </Marker>
-          )
+  return (
+    <div>
+      {data.map(function (ob) {
+        function setMarkerData() {
+        return () => (pointId = ob.id,
+        markerData[0] = ob.name,
+        markerData[1] = ob.vicinity,
+        props.setClosed(true),
+        props.onZoomChange(MarkersList));
+      }
+        return ( removedPointId !== ob.id &&
+        <Marker
+        position={{lat: Number(ob.geometry.location.lat), lng: Number(ob.geometry.location.lng)}}
+        key={ob.id}
+        onClick={setMarkerData()}>
+        </Marker>
+        )
 
-        })}
-      </div>
-    );
-  } else
-    {return
-      (
-        <div></div>
-      );
-    }}
+      })}
+    </div>
+  );
+} else {return (<div></div>);}}
 
 const Card = ({closed, removeOnClick, props}) => {
   return (
