@@ -132,6 +132,7 @@ const MyMapComponent = compose(
           defaultCenter={{ lat: 59.344656, lng: 18.040152 }}
           zoom1={props.zoom}
           ref={props.onMapMounted}
+          onMouseOver={props.onAffectingMap}
           onZoomChanged={props.onAffectingMap}
           onTilesLoaded={props.onAffectingMap}
           onDrag={props.onAffectingMap} >
